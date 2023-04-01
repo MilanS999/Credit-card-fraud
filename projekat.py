@@ -216,83 +216,83 @@ if __name__ == '__main__':
     # --- models ---
     
     
-    # # classification by balance
-    # per_t1, per_f1, n_t1, n_f1 = show_histogram(y_train)
-    # y_pred_by_balance = class_by_balance(X_test, per_t1)
-    # print('--------------------')
-    # print('Класификација на основу бројности\n')
-    # cm = confusion_matrix(y_true=y_test, y_pred=y_pred_by_balance)
-    # print('Матрица конфузије:')
-    # print(cm)
-    # print('Тачност: {}'.format(accuracy_score(y_true=y_test, y_pred=y_pred_by_balance)))
-    # print('Прецизност: {}'.format(precision_score(y_true=y_test, y_pred=y_pred_by_balance)))
-    # print('Осетљивост: {}'.format(recall_score(y_true=y_test, y_pred=y_pred_by_balance)))
-    # print('F1-скор: {}\n\n'.format(f1_score(y_true=y_test, y_pred=y_pred_by_balance)))
+    # classification by balance
+    per_t1, per_f1, n_t1, n_f1 = show_histogram(y_train)
+    y_pred_by_balance = class_by_balance(X_test, per_t1)
+    print('--------------------')
+    print('Класификација на основу бројности\n')
+    cm = confusion_matrix(y_true=y_test, y_pred=y_pred_by_balance)
+    print('Матрица конфузије:')
+    print(cm)
+    print('Тачност: {}'.format(accuracy_score(y_true=y_test, y_pred=y_pred_by_balance)))
+    print('Прецизност: {}'.format(precision_score(y_true=y_test, y_pred=y_pred_by_balance)))
+    print('Осетљивост: {}'.format(recall_score(y_true=y_test, y_pred=y_pred_by_balance)))
+    print('F1-скор: {}\n\n'.format(f1_score(y_true=y_test, y_pred=y_pred_by_balance)))
     
     
     
     
-    # # classification by the most informative predictor and convenient threshold
-    # y_pred_ipt = class_ipt(X_test[:,2:3], threshold) # informative predictor threshold
-    # print('--------------------')
-    # print('Класификација помоћу најинформативнијег обележја и погодног прага\n')
-    # cm = confusion_matrix(y_true=y_test, y_pred=y_pred_ipt)
-    # print('Матрица конфузије:')
-    # print(cm)
-    # print('Тачност: {}'.format(accuracy_score(y_true=y_test, y_pred=y_pred_ipt)))
-    # print('Прецизност: {}'.format(precision_score(y_true=y_test, y_pred=y_pred_ipt)))
-    # print('Осетљивост: {}'.format(recall_score(y_true=y_test, y_pred=y_pred_ipt)))
-    # print('F1-скор: {}\n\n'.format(f1_score(y_true=y_test, y_pred=y_pred_ipt)))
+    # classification by the most informative predictor and convenient threshold
+    y_pred_ipt = class_ipt(X_test[:,2:3], threshold) # informative predictor threshold
+    print('--------------------')
+    print('Класификација помоћу најинформативнијег обележја и погодног прага\n')
+    cm = confusion_matrix(y_true=y_test, y_pred=y_pred_ipt)
+    print('Матрица конфузије:')
+    print(cm)
+    print('Тачност: {}'.format(accuracy_score(y_true=y_test, y_pred=y_pred_ipt)))
+    print('Прецизност: {}'.format(precision_score(y_true=y_test, y_pred=y_pred_ipt)))
+    print('Осетљивост: {}'.format(recall_score(y_true=y_test, y_pred=y_pred_ipt)))
+    print('F1-скор: {}\n\n'.format(f1_score(y_true=y_test, y_pred=y_pred_ipt)))
     
     
     
     
-    # # logistic regression
-    # log_reg = LogisticRegression()
+    # logistic regression
+    log_reg = LogisticRegression()
     # # log_reg.fit(np.concatenate((X_train[:,0:3],X_train[:,4:7]),axis=1), y_train.reshape(y_train.shape[0]))
     # # y_pred_log = log_reg.predict(np.concatenate((X_test[:,0:3],X_test[:,4:7]),axis=1))
-    # log_reg.fit(X_train, y_train.reshape(y_train.shape[0]))
-    # y_pred_log = log_reg.predict(X_test)
-    # print('--------------------')
-    # print('Логистичка регресија\n')
-    # cm = confusion_matrix(y_true=y_test, y_pred=y_pred_log)
-    # print('Матрица конфузије:')
-    # print(cm)
-    # print('Тачност: {}'.format(accuracy_score(y_true=y_test, y_pred=y_pred_log)))
-    # print('Прецизност: {}'.format(precision_score(y_true=y_test, y_pred=y_pred_log)))
-    # print('Осетљивост: {}'.format(recall_score(y_true=y_test, y_pred=y_pred_log)))
-    # print('F1-скор: {}\n\n'.format(f1_score(y_true=y_test, y_pred=y_pred_log)))
+    log_reg.fit(X_train, y_train.reshape(y_train.shape[0]))
+    y_pred_log = log_reg.predict(X_test)
+    print('--------------------')
+    print('Логистичка регресија\n')
+    cm = confusion_matrix(y_true=y_test, y_pred=y_pred_log)
+    print('Матрица конфузије:')
+    print(cm)
+    print('Тачност: {}'.format(accuracy_score(y_true=y_test, y_pred=y_pred_log)))
+    print('Прецизност: {}'.format(precision_score(y_true=y_test, y_pred=y_pred_log)))
+    print('Осетљивост: {}'.format(recall_score(y_true=y_test, y_pred=y_pred_log)))
+    print('F1-скор: {}\n\n'.format(f1_score(y_true=y_test, y_pred=y_pred_log)))
     
     
-    # y_pred_log_proba = log_reg.predict_proba(X_test)[::,1]
-    # fpr, tpr, _ = roc_curve(y_test, y_pred_log_proba)
+    y_pred_log_proba = log_reg.predict_proba(X_test)[::,1]
+    fpr, tpr, _ = roc_curve(y_test, y_pred_log_proba)
     
-    # plt.figure()
-    # plt.plot(fpr, tpr)
-    # plt.xlabel('$Стопа$ $лажних$ $аларма$')
-    # plt.ylabel('$Стопа$ $тачних$ $аларма$')
-    # plt.title('ROC крива')
-    # plt.show()
-    
-    
+    plt.figure()
+    plt.plot(fpr, tpr)
+    plt.xlabel('$Стопа$ $лажних$ $аларма$')
+    plt.ylabel('$Стопа$ $тачних$ $аларма$')
+    plt.title('ROC крива')
+    plt.show()
     
     
-    # # GNB model
-    # t0 = time.time()
-    # clf_gnb = GaussianNB()
-    # clf_gnb.fit(X_train, y_train)
-    # y_pred_gnb = clf_gnb.predict(X_test).reshape(-1,1)
-    # print('--------------------')
-    # print('Гаусовски наивни Бејз\n')
-    # cm = confusion_matrix(y_true=y_test, y_pred=y_pred_gnb)
-    # print('Матрица конфузије:')
-    # print(cm)
-    # print('Тачност: {}'.format(accuracy_score(y_true=y_test, y_pred=y_pred_gnb)))
-    # print('Прецизност: {}'.format(precision_score(y_true=y_test, y_pred=y_pred_gnb)))
-    # print('Осетљивост: {}'.format(recall_score(y_true=y_test, y_pred=y_pred_gnb)))
-    # print('F1-скор: {}\n'.format(f1_score(y_true=y_test, y_pred=y_pred_gnb)))
-    # t1 = time.time()
-    # print('Време извршења: {} s\n\n'.format(t1-t0))
+    
+    
+    # GNB model
+    t0 = time.time()
+    clf_gnb = GaussianNB()
+    clf_gnb.fit(X_train, y_train)
+    y_pred_gnb = clf_gnb.predict(X_test).reshape(-1,1)
+    print('--------------------')
+    print('Гаусовски наивни Бејз\n')
+    cm = confusion_matrix(y_true=y_test, y_pred=y_pred_gnb)
+    print('Матрица конфузије:')
+    print(cm)
+    print('Тачност: {}'.format(accuracy_score(y_true=y_test, y_pred=y_pred_gnb)))
+    print('Прецизност: {}'.format(precision_score(y_true=y_test, y_pred=y_pred_gnb)))
+    print('Осетљивост: {}'.format(recall_score(y_true=y_test, y_pred=y_pred_gnb)))
+    print('F1-скор: {}\n'.format(f1_score(y_true=y_test, y_pred=y_pred_gnb)))
+    t1 = time.time()
+    print('Време извршења: {} s\n\n'.format(t1-t0))
     
     
     
@@ -317,23 +317,23 @@ if __name__ == '__main__':
     
     
     
-    # # decision tree
-    # t0 = time.time()
-    # clf_tree = tree.DecisionTreeClassifier(max_depth=30)
-    # clf_tree = clf_tree.fit(X_train, y_train)
-    # y_pred_tree = clf_tree.predict(X_test).reshape(-1,1)
-    # print('--------------------')
-    # print('Стабло одлуке\n')
-    # cm = confusion_matrix(y_true=y_test, y_pred=y_pred_tree)
-    # print('Матрица конфузије:')
-    # print(cm)
-    # print('Тачност: {}'.format(accuracy_score(y_true=y_test, y_pred=y_pred_tree)))
-    # print('Прецизност: {}'.format(precision_score(y_true=y_test, y_pred=y_pred_tree)))
-    # print('Осетљивост: {}'.format(recall_score(y_true=y_test, y_pred=y_pred_tree)))
-    # print('F1-скор: {}\n'.format(f1_score(y_true=y_test, y_pred=y_pred_tree)))
-    # t1 = time.time()
-    # print('Време извршења: {} s\n\n'.format(t1-t0))
-    # tree.plot_tree(clf_tree)
+    # decision tree
+    t0 = time.time()
+    clf_tree = tree.DecisionTreeClassifier(max_depth=30)
+    clf_tree = clf_tree.fit(X_train, y_train)
+    y_pred_tree = clf_tree.predict(X_test).reshape(-1,1)
+    print('--------------------')
+    print('Стабло одлуке\n')
+    cm = confusion_matrix(y_true=y_test, y_pred=y_pred_tree)
+    print('Матрица конфузије:')
+    print(cm)
+    print('Тачност: {}'.format(accuracy_score(y_true=y_test, y_pred=y_pred_tree)))
+    print('Прецизност: {}'.format(precision_score(y_true=y_test, y_pred=y_pred_tree)))
+    print('Осетљивост: {}'.format(recall_score(y_true=y_test, y_pred=y_pred_tree)))
+    print('F1-скор: {}\n'.format(f1_score(y_true=y_test, y_pred=y_pred_tree)))
+    t1 = time.time()
+    print('Време извршења: {} s\n\n'.format(t1-t0))
+    tree.plot_tree(clf_tree)
     
     
     
@@ -358,29 +358,26 @@ if __name__ == '__main__':
     
     
     
-    # # XGBoost
-    # t0 = time.time()
-    # clf_xgb = xgb.XGBClassifier(n_estimators=10, max_depth=4, max_features=3)
-    # clf_xgb.fit(X_train, y_train.reshape(y_train.shape[0]))
-    # print(clf_xgb)
-    # y_pred_xgb = clf_xgb.predict(X_test).reshape(-1,1)
-    # print('--------------------')
-    # print('XGBoost\n')
-    # cm = confusion_matrix(y_true=y_test, y_pred=y_pred_xgb)
-    # print('Матрица конфузије:')
-    # print(cm)
-    # print('Тачност: {}'.format(accuracy_score(y_true=y_test, y_pred=y_pred_xgb)))
-    # print('Прецизност: {}'.format(precision_score(y_true=y_test, y_pred=y_pred_xgb)))
-    # print('Осетљивост: {}'.format(recall_score(y_true=y_test, y_pred=y_pred_xgb)))
-    # print('F1-скор: {}\n'.format(f1_score(y_true=y_test, y_pred=y_pred_xgb)))
-    # t1 = time.time()
-    # print('Време извршења: {} s\n\n'.format(t1-t0))
+    # XGBoost
+    t0 = time.time()
+    clf_xgb = xgb.XGBClassifier(n_estimators=10, max_depth=4, max_features=3)
+    clf_xgb.fit(X_train, y_train.reshape(y_train.shape[0]))
+    print(clf_xgb)
+    y_pred_xgb = clf_xgb.predict(X_test).reshape(-1,1)
+    print('--------------------')
+    print('XGBoost\n')
+    cm = confusion_matrix(y_true=y_test, y_pred=y_pred_xgb)
+    print('Матрица конфузије:')
+    print(cm)
+    print('Тачност: {}'.format(accuracy_score(y_true=y_test, y_pred=y_pred_xgb)))
+    print('Прецизност: {}'.format(precision_score(y_true=y_test, y_pred=y_pred_xgb)))
+    print('Осетљивост: {}'.format(recall_score(y_true=y_test, y_pred=y_pred_xgb)))
+    print('F1-скор: {}\n'.format(f1_score(y_true=y_test, y_pred=y_pred_xgb)))
+    t1 = time.time()
+    print('Време извршења: {} s\n\n'.format(t1-t0))
     
     
-    # # --- models ---
-    
-    
-    
+    # --- models ---
     
     
     
@@ -394,26 +391,8 @@ if __name__ == '__main__':
     
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    # using seaborn
-    # a = np.array([[3.,7.,10.],[15.,17.,1.]])
-    # row_values = ['прва врста','second row']
-    # column_values = ['first column','second column','third column']
-    # b = pd.DataFrame(data=a, index=row_values, columns=column_values)
-    
-    # g = sns.catplot(
-    # data=b, kind="bar"
-    # )
-    # g.despine(left=True)
-    # g.set_axis_labels("", "Body mass (g)")
-    
+ 
+
     
     
     
