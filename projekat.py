@@ -31,15 +31,15 @@ def show_histogram(y):
     per_t = n_t / y.shape[0]
     per_f = n_f / y.shape[0]
     
-    # labels = 'Није превара', 'Јесте превара'
-    # explode = np.zeros(2)
-    # explode[1] = 0.1
-    # plt.figure()
-    # plt.pie([per_f,per_t], explode=explode,colors=['lime','red'], autopct='%.2f%%',
-    #     shadow=True, startangle=180)
-    # plt.title('Уравнотеженост података')
-    # plt.legend(labels,loc='lower right')
-    # plt.show()
+    labels = 'Није превара', 'Јесте превара'
+    explode = np.zeros(2)
+    explode[1] = 0.1
+    plt.figure()
+    plt.pie([per_f,per_t], explode=explode,colors=['lime','red'], autopct='%.2f%%',
+        shadow=True, startangle=180)
+    plt.title('Уравнотеженост података')
+    plt.legend(labels,loc='lower right')
+    plt.show()
     
     
     return per_t, per_f, n_t, n_f
@@ -196,9 +196,9 @@ if __name__ == '__main__':
     
     n_ct = 3 # number of continuous predictors
     per_t, per_f, n_t, n_f = show_histogram(y)
-    # mean_var_predictors(X, y, n_ct)
-    # preds_y_correlation(X, y, n_ct)
-    # predictors_hist(X, y, n_ct)
+    mean_var_predictors(X, y, n_ct)
+    preds_y_correlation(X, y, n_ct)
+    predictors_hist(X, y, n_ct)
     
     
     # --- exploratory data analysis ---
